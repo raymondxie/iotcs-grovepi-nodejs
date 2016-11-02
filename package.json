@@ -1,0 +1,29 @@
+{
+  "name": "iotcs-grovepi-nodejs",
+  "version": "1.0.0",
+  "description": "main device client code running on ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raymondxie/iotcs-grovepi-nodejs.git"
+  },
+  "keywords": [
+    "oracle",
+    "iot",
+    "iotcs",
+    "grovepi"
+  ],
+  "author": "Raymond Xie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raymondxie/iotcs-grovepi-nodejs/issues"
+  },
+  "homepage": "https://github.com/raymondxie/iotcs-grovepi-nodejs#readme",
+  "dependencies": {
+    "node-forge": "^0.6.45",
+    "node-grovepi": "^2.0.9"
+  }
+}
