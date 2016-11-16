@@ -15,5 +15,6 @@ Basically it says: A light sensor is hooked on A2 port, and the reading is assoc
 
 ## Start Device Client program
 Just type at command line of Raspberry Pi:
-**node mainClient.js <provisioning-file-name> <file-password>**
+
+> node mainClient.js provisioning-file-name file-password
 
