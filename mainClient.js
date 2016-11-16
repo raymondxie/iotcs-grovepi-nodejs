@@ -15,7 +15,8 @@
 "use strict";
 
 //TODO: please supply the device model associated with your device
-const DEVICE_MODEL_URN = 'urn:com:oracle:iot:grovepi:mydevicemodel';
+// const DEVICE_MODEL_URN = 'urn:com:oracle:iot:grovepi:mydevicemodel';
+const DEVICE_MODEL_URN = 'urn:com:oracle:appslab:xraydevicemodel';;
 
 
 // Setup IoT Device Client Lib
@@ -65,9 +66,11 @@ var virtualDev;
 // Setup device and board and initialize them
 activateDeviceIfNeeded(device)
     .then((device) => {
+    	console.log( 'device: ', device);
         return getModelGrovePiDeviceModel(device);
     })
     .then((deviceModel) => {
+    	console.log( 'device model: ', deviceModel);
         virtualDev = device.createVirtualDevice(device.getEndpointId(), deviceModel);
         return createGrovePiBoard(virtualDev);
     })
@@ -159,16 +162,18 @@ function setupSensors() {
                 break;
 
             case 'LightAnalogSensor':
-                new LightAnalogSensor(pin).stream(100, function(res) {
+                new LightAnalogSensor(pin).stream(2000, function(res) {
                     if (res !== currentData[sensor.attr] && res !== false) {
-                        currentData[sensor.attr] = res;
-                        dataChange();
+                    	if (Math.abs(res- currentData[sensor.attr]) > 2 ) {
+                        	currentData[sensor.attr] = res;
+                        	dataChange();
+            			}
                     }
                 });
                 break;
 
             case 'Button':
-                new Digital(pin).stream(20, function(res) {
+                new Digital(pin).stream(100, function(res) {
                     if (res !== currentData[sensor.attr] && res !== false) {
                         currentData[sensor.attr] = res !== 0;
                         dataChange();
@@ -195,10 +200,13 @@ function setupSensors() {
                 break;
 
             case 'RotaryAngleAnalogSensor':
-                new Analog(pin).stream(100, function(res) {
+                new Analog(pin).stream(1000, function(res) {
                     if (res !== currentData[sensor.attr] && res !== false) {
-                        currentData[sensor.attr] = res;
+		              // RXIE: filter out little noise
+                      if (Math.abs(res- currentData[sensor.attr]) > 5 ) {
+                  			currentData[sensor.attr] = res;
                         dataChange();
+                      }
                     }
                 });
                 break;

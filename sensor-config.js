@@ -47,19 +47,19 @@ var config = [
 
 var config = [
   {
-    "pin": "A1",
+    "pin": "A2",
     "type": "RotaryAngleAnalogSensor",
     "attr": "angle",
     "val": 0
   },
   {
-    "pin": "A2",
+    "pin": "A1",
     "type": "LightAnalogSensor",
     "attr": "light",
     "val": 0.0
   },
   {
-    "pin": "D7",
+    "pin": "D3",
     "type": "Button",
     "attr": "button",
     "val": false
