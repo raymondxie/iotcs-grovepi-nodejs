@@ -1,5 +1,6 @@
 # iotcs-grovepi-nodejs
 Starter device client code in NodeJS, for a Raspberry Pi device with GrovePi sensors, to communicate with Oracle IoT Cloud Service
+This client device is tested with IoTCS Server version 16.4.1.0.0
 
 ## Sensor Configuration
 You can configure the sensors connected to GrovePi ports, and map them to the data attribute defined in device model.
