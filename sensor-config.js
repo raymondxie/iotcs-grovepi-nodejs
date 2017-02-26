@@ -56,7 +56,7 @@ var config = [
     "pin": "A1",
     "type": "LightAnalogSensor",
     "attr": "light",
-    "val": 0.0
+    "val": 0
   },
   {
     "pin": "D3",
