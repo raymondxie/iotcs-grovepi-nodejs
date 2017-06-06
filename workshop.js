@@ -53,11 +53,12 @@ var currentData = {
 };
 */
 
+//    host: '192.168.20.251',
 // Setup MQTT broker connection
 const mqtt = require("mqtt");
 var options = {
     port: 1883,
-    host: '192.168.20.251',
+    host: 'localhost',
     clientId: 'raspberrypi3-oc',
     username: 'iotuser',
     password: 'iotpass',
