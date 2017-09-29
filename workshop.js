@@ -200,7 +200,7 @@ function setupSensors() {
             case 'LightAnalogSensor':
                 new LightAnalogSensor(pin).stream(1000, function(res) {
                     if (res !== currentData[sensor.attr] && res !== false) {
-                    	if (Math.abs(res- currentData[sensor.attr]) > 5 ) {
+                    	if (Math.abs(res- currentData[sensor.attr]) > 20 ) {
                         	currentData[sensor.attr] = res;
 console.log('light change');
                         	dataChange();
